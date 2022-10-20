@@ -1,0 +1,25 @@
+kind: role
+version: v5
+metadata:
+  name: sales-dev
+spec:
+  options:
+    max_session_ttl: 4h
+  allow:
+    logins: ['ec2-user']
+    node_labels:
+      'aws/Name': 'sales-*'
+    aws_role_arns:
+      - 'arn:aws:iam::765814079306:role/role-sales-project'
+---
+kind: role
+version: v5
+metadata:
+  name: accounting-dev
+spec:
+  options:
+    max_session_ttl: 4h
+  allow:
+    logins: ['ec2-user']
+    node_labels:
+      'aws/Name': 'accounting-*'  

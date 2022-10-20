@@ -1,0 +1,14 @@
+chartMode: aws
+clusterName: teleport.meganmind.com
+aws:
+  region: us-east-1
+  backendTable: teleport-backend
+  auditLogTable: teleport-events
+  auditLogMirrorOnStdout: false
+  sessionRecordingBucket: teleport-bucket
+  backups: false
+  dynamoAutoScaling: false
+#highAvailability:
+#  replicaCount: 1
+tls:
+  existingSecretName: tls-secret

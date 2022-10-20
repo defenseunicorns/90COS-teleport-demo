@@ -1,0 +1,18 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: teleport-demo
+  region: us-east-1
+vpc:
+  subnets:
+    private:
+      us-east-1a: { id: subnet-0049f4d61f261d51d }
+      us-east-1b: { id: subnet-0f666a01dedf2bb3d }
+managedNodeGroups:
+  - name: teleport-demo-nodegroup
+    labels: { role: workers }
+    instanceType: m5.xlarge
+    desiredCapacity: 2
+    privateNetworking: true
+    volumeSize: 100
+    volumeType: gp2

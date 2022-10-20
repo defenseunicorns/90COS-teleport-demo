@@ -1,0 +1,13 @@
+kind: user
+version: v2
+metadata:
+  name: jimhalpert
+spec:
+  roles: ['sales-dev']
+---
+kind: user
+version: v2
+metadata:
+  name: michaelscott
+spec:
+  roles: []
