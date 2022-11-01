@@ -60,7 +60,7 @@ Repository generates a testing instance of Teleport + associated components for 
     From `./terraform/create-test-resources`
     ```
     terraform init
-    terraform apply -var="eks_node_group_role=<role name from EKS creation>"
+    terraform apply
     ```
 
     Note - Uses “user data” to install teleport and connect to cluster, see following files to debug user data scripts
