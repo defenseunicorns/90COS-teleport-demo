@@ -100,7 +100,8 @@ resource "aws_route_table_association" "private_rt_assoc" {
 
 # Create security group for instance, can only access from public subnet
 resource "aws_security_group" "security_group" {
-  name = "sg-${var.project_name}"
+  name = "teleport-sg-${var.project_name}"
+  vpc_id = aws_vpc.vpc.id
 
   ingress {
     from_port   = 22
@@ -128,7 +129,10 @@ resource "aws_instance" "box" {
   vpc_security_group_ids = [
     aws_security_group.security_group.id
   ]
-  instance_metadata_tags = "enabled"
+  metadata_options {
+    http_endpoint = "enabled"
+    instance_metadata_tags = "enabled"
+  }
 
   user_data = <<EOF
 #!/bin/bash
