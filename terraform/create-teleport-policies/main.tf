@@ -135,16 +135,16 @@ data "aws_iam_role" "role" {
 }
 
 resource "aws_iam_role_policy_attachment" "dynamo-att" {
-  role     = aws_iam_role.role.name
+  role     = data.aws_iam_role.role.name
   policy_arn = aws_iam_policy.dynamo-policy.arn
 }
 
 resource "aws_iam_role_policy_attachment" "s3-att" {
-  role     = aws_iam_role.role.name
+  role     = data.aws_iam_role.role.name
   policy_arn = aws_iam_policy.s3-policy.arn
 }
 
 resource "aws_iam_role_policy_attachment" "ec2-att" {
-  role     = aws_iam_role.role.name
+  role     = data.aws_iam_role.role.name
   policy_arn = aws_iam_policy.ec2-policy.arn
 }
